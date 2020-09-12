@@ -10,7 +10,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var imgDice:ImageView
+
+    private lateinit var imgDice: ImageView
     private val diceImages = mutableListOf<Int>()
     private lateinit var animation: Animation
 
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity() {
             btnRoll.isEnabled = false
             getRandomValue()
         }
-
 
         // add dice images to list
         diceImages.add(R.drawable.ic_dice_one)
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getRandomValue() {
-        val random = Random().nextInt(6)
+        val random = Random().nextInt(6) // returns number between 0-5
 
         // start the animation
         imgDice.startAnimation(animation)
@@ -52,11 +52,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onAnimationEnd(p0: Animation?) {
-                // when animation ends we will set the image
+                // when animation ends we will set the dice image
                 imgDice.setImageResource(diceImages.elementAt(random)) // this will set the dice image randomly
                 // enable the button click
                 btnRoll.isEnabled = true
-
             }
 
             override fun onAnimationStart(p0: Animation?) {
@@ -64,6 +63,5 @@ class MainActivity : AppCompatActivity() {
                 imgDice.setImageResource(R.drawable.ic_dice)
             }
         })
-
     }
 }
