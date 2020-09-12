@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imgDice:ImageView
     private val diceImages = mutableListOf<Int>()
     private lateinit var animation: Animation
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -60,10 +60,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onAnimationStart(p0: Animation?) {
-                // when animation starts we will set default image
+                // when animation starts we will set default dice image
                 imgDice.setImageResource(R.drawable.ic_dice)
             }
-
         })
 
     }
